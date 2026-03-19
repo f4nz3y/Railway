@@ -1,5 +1,6 @@
 //---------------------------rail way reservation project by using c programming language--------------------------
 //---------------------------------------header file start-----------------------------------------
+#define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
 #include<windows.h>
 #include<stdlib.h>
@@ -72,7 +73,10 @@ int main()
 	printf("\n\t\t\t********************************");
 	printf("\n\t\t\tENTER YOUR CHOICE: ");
 
-	scanf("%d",&ch);
+	if (scanf("%d", &ch) != 1) {
+		printf("Error!");
+		while (getchar() != '\n');
+	}
 	switch(ch)
 	{
 		case 1:
@@ -94,7 +98,7 @@ int main()
 							printf("\t\t\t ===============================================\n");
 							printf("\n\n\t\t\tBMROUGHT TO YOU BY\n\n");
 							printf("\t\t\t\t***CODE-PROJECTS.ORG***\n");
-							getch();
+							(void)_getch();
 							exit(0);
 							break;
 							default:
@@ -104,7 +108,7 @@ int main()
 								printf("\t\t\t   ==============================================\n");
 								printf("\n\n\t\t\t<<<<<<<<YOU ENTERED WRONG CHOICE>>>>>>>>\n");
 								printf("\t\t\t<<<<<<<<PLEASE ENTER RIGHT THING>>>>>>>>\n");
-								getch();
+								(void)_getch();
 								system("cls");
 								main();
 	}
@@ -115,18 +119,23 @@ int main()
 void bookticket()
 {
 	int c,j,n,i,found=-1;
-	char v,train_number[10];
 	system ("cls");
 	aread();
 	printf("\n\n\t\t\t============================================");
 	printf("\n\t\t\t**********RAILWAY RESERVATION SYSTEM**********\n");
 	printf("\t\t\t==================================================");
 	printf("\n\n\t\t\thow many ticket do you want to buy: ");
-	scanf("%d",&n);
+	if (scanf("%d", &n) != 1) {
+		printf("Error!");
+		while (getchar() != '\n');
+	}
 	for(j=u;j<u+n;j++)
 	{
 	printf("\n\n\t\t\tEnter train number: ");
-	scanf("%s", book[j].train_number);
+	if (scanf("%s", book[j].train_number) != 1) {
+		printf("Error!");
+		while (getchar() != '\n');
+	}
 	for(i=0;i<k;i++)
 	{
 	if(strcmp(book[j].train_number,add[i].train_number)==0)
@@ -135,7 +144,7 @@ void bookticket()
 	{
 		printf("\n\n\t\t\tnot available seat");
 		
-		getch();
+		(void)_getch();
 		system("cls");
 		main();
 	}
@@ -144,11 +153,20 @@ void bookticket()
 	    found=1;
 		printf("\n\t\t\tenter book %d no ticket: ",j+1);
 		printf("\n\t\t\tenter date: ");
-		scanf("%s",book[j].date);
+		if (scanf("%s", book[j].date) != 1) {
+			printf("Error!");
+			while (getchar() != '\n');
+		}
 		printf("\n\t\t\tenter your name: ");
-		scanf("%s",book[j].name);
+		if (scanf("%s", book[j].name) != 1) {
+			printf("Error!");
+			while (getchar() != '\n');
+		}
 		printf("\n\t\t\tenter your phone number: ");
-		scanf("%s",book[j].phone);
+		if (scanf("%s", book[j].phone) != 1) {
+			printf("Error!");
+			while (getchar() != '\n');
+		}
 		printf("\n\t\t\tseat number : %d",add[i].seat );
 		book[j].seat=add[i].seat;
 		bookticket_write();
@@ -160,7 +178,7 @@ void bookticket()
 	if(found==-1)
 	{
 		printf("\n\n\t\t\ttrain not found!!!");
-		getch();
+		(void)_getch();
 		system("cls");
 		main();
 	}
@@ -169,7 +187,10 @@ void bookticket()
 		u=j;
 		bookticket_write();
 		printf("\n\n\t\t\tenter '1' for main menu & press any key to exit: ");
-		scanf("%d",&c);
+		if (scanf("%d", &c) != 1) {
+			printf("Error!");
+			while (getchar() != '\n');
+		}
 			if(c==1)
 			{
 				system("cls");
@@ -177,17 +198,20 @@ void bookticket()
 			}
 			if(c!=1)
 			{
-				exit;
+				exit(0);
 			}			
 }
 //---------------------------------------cancel ticket function---------------------------------------------
 void cancelticket()
 {
 	viewpassengers_read();
-    char pnnmbr[100];
+	char pnnmbr[100] = { 0 };
     int location = -1,e;
     printf ("\n\n\t\t\tenter phone number: ");
-    scanf ("%s",pnnmbr);
+	if (scanf("%s", pnnmbr) != 1) {
+		printf("Error!");
+		while (getchar() != '\n');
+	}
     for (e=0;e<u;e++)
     {
         if (strcmp(pnnmbr,book[e].phone)==0)
@@ -199,7 +223,7 @@ void cancelticket()
     if (location==-1)
     {
         printf ("\n\n\t\t\t<<<<<<<<<<<<<<Data Not Found>>>>>>>>>>>>>>>>> \n");
-        getch();
+		(void)_getch();
         system("cls");
         main();
     }
@@ -216,7 +240,7 @@ void cancelticket()
         u--;
         bookticket_write();
         printf("\n\n\t\t\t<<<<<<<<<<<<<<<ticket cancelled successfully>>>>>>>>>>>>");
-        getch();
+		(void)_getch();
         system("cls");
         main();
     }
@@ -243,7 +267,10 @@ void admin()
 	printf("              ************************************\n\n");
 	printf("     **********************************************************\n");
 	printf("\n\t\tENTER YOUR CHOICE: ");
-	scanf("%d",&chhh);
+	if (scanf("%d", &chhh) != 1) {
+		printf("Error!");
+		while (getchar() != '\n');
+	}
 
 	switch(chhh)
 	{
@@ -258,17 +285,17 @@ void admin()
 					break;
 					case 4:
 						system("cls");
-						getch();
+						(void)_getch();
 						main();
 						break;
 						default:
-							getch();
+							(void)_getch();
 							printf("\n\t\t\tyou entered wrong KEY!!!!");
-							getch();
+							(void)_getch();
 							system("cls");
 							main();
 	}
-	getch();
+	(void)_getch();
 }
 //-----------------------------password function----------------------------------
 void password()
@@ -276,11 +303,14 @@ void password()
 	int number=1234567;
 	int pass;
 	printf("\n\t\t\tenter password: ");
-	scanf("%d",&pass);
+	if (scanf("%d", &pass) != 1) {
+		printf("Error!");
+		while (getchar() != '\n');
+	}
 	if(pass==number)
 	{
 		printf("\n\n\t\t\t<<<<<login successfully>>>>>");
-		getch();
+		(void)_getch();
 		system("cls");
 		admin();
 	}
@@ -288,7 +318,7 @@ void password()
 	{
 		printf("\n\n\t\t\t\t   ERROR!!!!!");
 		printf("\n\n\t\t\t<<<<<<<<wrong password>>>>>>>>");
-		getch();
+		(void)_getch();
 		system("cls");
 		main();
 	}
@@ -297,10 +327,13 @@ void password()
 void dlttrain()
 {
 	aread();
-    char train[100];
+    char train[100] = { 0 };
     int location = -1,f;
     printf ("\n\n\tenter train number: ");
-    scanf ("%s",train);
+	if (scanf("%s", train) != 1) {
+		printf("Error!");
+		while (getchar() != '\n');
+	}
     for (f=0;f<k;f++)
     {
         if (strcmp(train,add[f].train_number)==0)
@@ -312,7 +345,7 @@ void dlttrain()
     if (location==-1)
     {
         printf ("\n\n\t<<<<<<<<<<<<<<Data Not Found>>>>>>>>>>>>>>>>> \n");
-        getch();
+		(void)_getch();
         system("cls");
         admin();
     }
@@ -333,7 +366,7 @@ void dlttrain()
         k--;
         awrite();
 		printf("\n\n\t<<<<<<<<<<<<<train deleted successfully>>>>>>>>>>>>>");
-		getch();
+		(void)_getch();
 		system("cls");
 		admin();
     }
@@ -356,7 +389,10 @@ void viewpassenger()
 	}
 	printf("\n\t\t\t**********************************************************************************\n");
 	printf("\n\n\t\t\tenter '1' for main menu & enter '0' for back: ");
-	scanf("%d",&a);
+	if (scanf("%d", &a) != 1) {
+		printf("Error!");
+		while (getchar() != '\n');
+	}
 	if(a==1)
 	{
 		system("cls");
@@ -379,30 +415,60 @@ void addtrain()
 	printf("\n\t\t     ********************RAILWAY RESERVATION SYSTEM********************");
 	printf("\n\t\t     **********************************************************");
 	printf("\n\n\t\t\thow many trains do you want to add: ");
-	scanf("%d",&a);
+	if (scanf("%d", &a) != 1) {
+		printf("Error!");
+		while (getchar() != '\n');
+	}
 	for(i=k;i<k+a;i++)
 	{
 		printf("\n\t\t\tenter %d train details: ",i+1);
 		printf("\n\t\t\tenter serial number: ");
-		scanf("%s",add[i].si);
+		if (scanf("%s", add[i].si) != 1) {
+			printf("Error!");
+			while (getchar() != '\n');
+		}
 		printf("\n\t\t\tenter train number: ");
-		scanf("%s",add[i].train_number);
+		if (scanf("%s", add[i].train_number) != 1) {
+			printf("Error!");
+			while (getchar() != '\n');
+		}
 		printf("\n\t\t\tenter train name: ");
-		scanf("%s",add[i].train_name);
+		if (scanf("%s", add[i].train_name) != 1) {
+			printf("Error!");
+			while (getchar() != '\n');
+		}
 		printf("\n\t\t\tenter start place: ");
-		scanf("%s",add[i].start);
+		if (scanf("%s", add[i].start) != 1) {
+			printf("Error!");
+			while (getchar() != '\n');
+		}
 		printf("\n\t\t\tenter destination place: ");
-		scanf("%s",add[i].destination);
+		if (scanf("%s", add[i].destination) != 1) {
+			printf("Error!");
+			while (getchar() != '\n');
+		}
 		printf("\n\t\t\t enter price: ");
-		scanf("%s",add[i].price);
+		if (scanf("%s", add[i].price) != 1) {
+			printf("Error!");
+			while (getchar() != '\n');
+		}
 		printf("\n\t\t\t enter seat: ");
-		scanf("%d", & add[i].seat);
+		if (scanf("%d", &add[i].seat) != 1) {
+			printf("Error!");
+			while (getchar() != '\n');
+		}
 		printf("\n\t\t\t enter time: ");
-		scanf("%s",add[i].time);
+		if (scanf("%s", add[i].time) != 1) {
+			printf("Error!");
+			while (getchar() != '\n');
+		}
 	}
 
 		printf("\n\n\t\t\tconfirm train: (y=1/n=0):- ");
-		scanf("%d",&ch);
+		if (scanf("%d", &ch) != 1) {
+			printf("Error!");
+			while (getchar() != '\n');
+		}
 		if(ch==1)
 		{
 			awrite();
@@ -416,7 +482,7 @@ void addtrain()
 			printf("\n\t\t\t\t   **********************************");
 			printf("\n\t\t\t\t   *<<<<<train add successfully>>>>>*");
 			printf("\n\t\t\t\t   **********************************");
-			getch();
+			(void)_getch();
 			system("cls");
 			main();
 		}
@@ -447,7 +513,10 @@ void viewinfo()
 	}
 	printf("    ***********************************************************************************************\n");
 	printf("\n\t\t\tpress '1' for main menu & press any key for exit:  ");
-	scanf("%d",&ch);
+	if (scanf("%d", &ch) != 1) {
+		printf("Error!");
+		while (getchar() != '\n');
+	}
 	switch(ch)
 	{
 		case 1:
