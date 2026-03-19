@@ -419,6 +419,13 @@ void addtrain()
 		printf("Error!");
 		while (getchar() != '\n');
 	}
+	if (a < 0 || (k + a) >= 1000) {
+		printf("\n\t\tError: Not enough space in the database!");
+		(void)_getch();
+		system("cls");
+		admin();
+		return;
+	}
 	for(i=k;i<k+a;i++)
 	{
 		printf("\n\t\t\tenter %d train details: ",i+1);
@@ -585,6 +592,9 @@ void aread()
 	{
 		fread(&k, sizeof(k), 1, train_report);
 		fclose(train_report);
+
+		if (k < 0) k = 0;
+		if (k > 1000) k = 1000;
 	}
 }
 //----------------------------------------------------file close----------------------------------------------
