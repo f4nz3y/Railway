@@ -100,7 +100,7 @@ int main()
 							printf("\t\t\t\t***CODE-PROJECTS.ORG***\n");
 							(void)_getch();
 							exit(0);
-							break;
+
 							default:
 								system("cls");
 								printf("\n\t\t\t==============================================\n");
@@ -573,7 +573,7 @@ void aread()
 {
 	FILE* train_details;
 	train_details = fopen("train_details.txt", "r");
-	if (train_details != NULL) // Додаємо перевірку!
+	if (train_details != NULL)
 	{
 		fread(&add, sizeof(add), 1, train_details);
 		fclose(train_details);
@@ -581,7 +581,7 @@ void aread()
 
 	FILE* train_report;
 	train_report = fopen("train_report.txt", "r");
-	if (train_report != NULL) // Додаємо перевірку!
+	if (train_report != NULL)
 	{
 		fread(&k, sizeof(k), 1, train_report);
 		fclose(train_report);
