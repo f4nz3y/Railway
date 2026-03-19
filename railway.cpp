@@ -132,7 +132,7 @@ void bookticket()
 	for(j=u;j<u+n;j++)
 	{
 	printf("\n\n\t\t\tEnter train number: ");
-	if (scanf("%s", book[j].train_number) != 1) {
+	if (scanf("%19s", book[j].train_number) != 1) {
 		printf("Error!");
 		while (getchar() != '\n');
 	}
@@ -153,17 +153,17 @@ void bookticket()
 	    found=1;
 		printf("\n\t\t\tenter book %d no ticket: ",j+1);
 		printf("\n\t\t\tenter date: ");
-		if (scanf("%s", book[j].date) != 1) {
+		if (scanf("%19s", book[j].date) != 1) {
 			printf("Error!");
 			while (getchar() != '\n');
 		}
 		printf("\n\t\t\tenter your name: ");
-		if (scanf("%s", book[j].name) != 1) {
+		if (scanf("%19s", book[j].name) != 1) {
 			printf("Error!");
 			while (getchar() != '\n');
 		}
 		printf("\n\t\t\tenter your phone number: ");
-		if (scanf("%s", book[j].phone) != 1) {
+		if (scanf("%19s", book[j].phone) != 1) {
 			printf("Error!");
 			while (getchar() != '\n');
 		}
@@ -208,7 +208,7 @@ void cancelticket()
 	char pnnmbr[100] = { 0 };
     int location = -1,e;
     printf ("\n\n\t\t\tenter phone number: ");
-	if (scanf("%s", pnnmbr) != 1) {
+	if (scanf("%99s", pnnmbr) != 1) {
 		printf("Error!");
 		while (getchar() != '\n');
 	}
@@ -330,7 +330,7 @@ void dlttrain()
     char train[100] = { 0 };
     int location = -1,f;
     printf ("\n\n\tenter train number: ");
-	if (scanf("%s", train) != 1) {
+	if (scanf("%99s", train) != 1) {
 		printf("Error!");
 		while (getchar() != '\n');
 	}
@@ -423,32 +423,32 @@ void addtrain()
 	{
 		printf("\n\t\t\tenter %d train details: ",i+1);
 		printf("\n\t\t\tenter serial number: ");
-		if (scanf("%s", add[i].si) != 1) {
+		if (scanf("%9s", add[i].si) != 1) {
 			printf("Error!");
 			while (getchar() != '\n');
 		}
 		printf("\n\t\t\tenter train number: ");
-		if (scanf("%s", add[i].train_number) != 1) {
+		if (scanf("%9s", add[i].train_number) != 1) {
 			printf("Error!");
 			while (getchar() != '\n');
 		}
 		printf("\n\t\t\tenter train name: ");
-		if (scanf("%s", add[i].train_name) != 1) {
+		if (scanf("%19s", add[i].train_name) != 1) {
 			printf("Error!");
 			while (getchar() != '\n');
 		}
 		printf("\n\t\t\tenter start place: ");
-		if (scanf("%s", add[i].start) != 1) {
+		if (scanf("%9s", add[i].start) != 1) {
 			printf("Error!");
 			while (getchar() != '\n');
 		}
 		printf("\n\t\t\tenter destination place: ");
-		if (scanf("%s", add[i].destination) != 1) {
+		if (scanf("%9s", add[i].destination) != 1) {
 			printf("Error!");
 			while (getchar() != '\n');
 		}
 		printf("\n\t\t\t enter price: ");
-		if (scanf("%s", add[i].price) != 1) {
+		if (scanf("%9s", add[i].price) != 1) {
 			printf("Error!");
 			while (getchar() != '\n');
 		}
@@ -458,7 +458,7 @@ void addtrain()
 			while (getchar() != '\n');
 		}
 		printf("\n\t\t\t enter time: ");
-		if (scanf("%s", add[i].time) != 1) {
+		if (scanf("%9s", add[i].time) != 1) {
 			printf("Error!");
 			while (getchar() != '\n');
 		}
