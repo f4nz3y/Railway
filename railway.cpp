@@ -23,7 +23,7 @@ void bookticket_write();
 void viewpassengers_read();
 //-----------------------------------------user define function close-----------------------------------
 //-----------------------------------------structure start----------------------------------------------
-struct adddata
+static struct adddata
 {
 	char si[10];
 	char train_number[10];
@@ -35,7 +35,7 @@ struct adddata
 	char time[10];
 } add[1000];
 
-struct bookticket
+static struct bookticket
 {
 	char train_number[20];
 	char name[20];
@@ -45,8 +45,8 @@ struct bookticket
 }book[1000];
 //---------------------------------------structure close----------------------------------------------
 //---------------------------------------global variable----------------------------------------------
-int k=0,u=0;
-char trn_nmbr[100],name[100],phn[100];
+static int k=0,u=0;
+static char trn_nmbr[100],name[100],phn[100];
 //---------------------------------------main function start------------------------------------------
 int main()
 {
@@ -553,14 +553,14 @@ void bookticket_write()
 void viewpassengers_read()
 {
 	FILE* booklist = fopen("booklist.txt", "r");
-	if (booklist != NULL)
+	if (booklist != nullptr)
 	{
 		fread(&book, sizeof(book), 1, booklist);
 		fclose(booklist);
 	}
 
 	FILE* booklistreport = fopen("booklistreport.txt", "r");
-	if (booklistreport != NULL)
+	if (booklistreport != nullptr)
 	{
 		fread(&u, sizeof(u), 1, booklistreport);
 		fclose(booklistreport);
@@ -583,7 +583,7 @@ void aread()
 {
 	FILE* train_details;
 	train_details = fopen("train_details.txt", "r");
-	if (train_details != NULL)
+	if (train_details != nullptr)
 	{
 		fread(&add, sizeof(add), 1, train_details);
 		fclose(train_details);
@@ -591,7 +591,7 @@ void aread()
 
 	FILE* train_report;
 	train_report = fopen("train_report.txt", "r");
-	if (train_report != NULL)
+	if (train_report != nullptr)
 	{
 		fread(&k, sizeof(k), 1, train_report);
 		fclose(train_report);
