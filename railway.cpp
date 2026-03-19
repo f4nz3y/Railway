@@ -542,15 +542,19 @@ void bookticket_write()
 }
 void viewpassengers_read()
 {
-	FILE *booklist;
-	booklist=fopen("booklist.txt","r");
-	fread(&book,sizeof(book),1,booklist);
-	fclose(booklist);
+	FILE* booklist = fopen("booklist.txt", "r");
+	if (booklist != NULL)
+	{
+		fread(&book, sizeof(book), 1, booklist);
+		fclose(booklist);
+	}
 
-	FILE *booklistreport;
-	booklistreport=fopen("booklistreport.txt","r");
-	fread(&u,sizeof(u),1,booklistreport);
-	fclose(booklistreport);
+	FILE* booklistreport = fopen("booklistreport.txt", "r");
+	if (booklistreport != NULL)
+	{
+		fread(&u, sizeof(u), 1, booklistreport);
+		fclose(booklistreport);
+	}
 }
 //-----------------------------------------add train file start---------------------------------------------------
 void awrite()
@@ -567,15 +571,21 @@ void awrite()
 }
 void aread()
 {
-	FILE *train_details;
-	train_details = fopen("train_details.txt","r");
-	fread(&add,sizeof(add),1,train_details);
-	fclose(train_details);
+	FILE* train_details;
+	train_details = fopen("train_details.txt", "r");
+	if (train_details != NULL) // Додаємо перевірку!
+	{
+		fread(&add, sizeof(add), 1, train_details);
+		fclose(train_details);
+	}
 
-	FILE *train_report;
-	train_report = fopen("train_report.txt","r");
-	fread(&k,sizeof(k),1,train_report);
-	fclose(train_report);
+	FILE* train_report;
+	train_report = fopen("train_report.txt", "r");
+	if (train_report != NULL) // Додаємо перевірку!
+	{
+		fread(&k, sizeof(k), 1, train_report);
+		fclose(train_report);
+	}
 }
 //----------------------------------------------------file close----------------------------------------------
 //----------------------------------------------------program close----------------------------------------
