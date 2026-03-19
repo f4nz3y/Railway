@@ -56,7 +56,10 @@ int main()
 	int ch;
 	time_t currentTime;
 	time(&currentTime);
-	printf("\n\t\t\t     %s\n",ctime(&currentTime));
+	char timeBuffer[26];
+	if (ctime_s(timeBuffer, sizeof(timeBuffer), &currentTime) == 0) {
+		printf("\n\t\t\t     %s", timeBuffer);
+	}
 	
 	printf("\n\t\t\t*********************************\n");
 	printf("\t\t\t*******RAILWAY RESERVATION SYSTEM*******\n");
